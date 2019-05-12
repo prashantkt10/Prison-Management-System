@@ -1,0 +1,247 @@
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+class ControlPanel extends JFrame implements ActionListener
+{
+	private JLabel labelcp, labelw, labelp, labelr, labelf, Line, Line1, Line2, Line3, Line4, Line5, Line6, Line7;
+	private JButton addw, updatew, addp, updatep, releasep, reportw, reportp, findp, findw, deletew, logout, help;
+	private Icon imgaw, imgap, imgupw, imgupp, imgreleasep, imgreportw, imgreportp, imgfindw, imgfindp, imgdeletew, imglogout, imghelp;
+	private JPanel header, footer, center;
+	private Font f1, f2, f3, f4;
+
+	public ControlPanel()
+	{
+		f1=new Font("Felix Titling", 1,30);
+		f2=new Font("Felix Titling", 1,15);
+		f3=new Font("Lucida Bright", 1,15);
+		imgaw=new ImageIcon(getClass().getResource("addw.png"));
+		imgupw=new ImageIcon(getClass().getResource("updatew.png"));
+		imgap=new ImageIcon(getClass().getResource("addprisoner.gif"));
+		imgreleasep=new ImageIcon(getClass().getResource("releasep.jpg"));
+		imgupp=new ImageIcon(getClass().getResource("updatep.png"));
+		imgreportw=new ImageIcon(getClass().getResource("wardenr.png"));
+		imgreportp=new ImageIcon(getClass().getResource("prisonerr.png"));
+		imgfindw=new ImageIcon(getClass().getResource("findw.png"));
+		imgfindp=new ImageIcon(getClass().getResource("findp.jpg"));
+		imgdeletew=new ImageIcon(getClass().getResource("deletew.png"));
+		imglogout=new ImageIcon(getClass().getResource("logout.png"));
+		imghelp=new ImageIcon(getClass().getResource("help.png"));
+		header=new JPanel();
+		footer=new JPanel();
+		center=new JPanel();
+		labelcp=new JLabel("<html><u>Admin Control Panel</u></html>");
+		labelw=new JLabel("<html><u>_____Warden Panel_____</u></html>");
+		labelp=new JLabel("<html><u>_____Prisoner Panel_____</u></html>");
+		labelr=new JLabel("<html><u>_____Reports_____</u></html>");
+		Line=new JLabel("________________________________________________________________________________________________________________________________________________________________");
+		Line1=new JLabel("________________________________________________________________________________________________________________________________________________________________");
+		Line2=new JLabel("______________________________________________________");
+		Line3=new JLabel("______________________________________________________");
+		Line4=new JLabel("______________________________________________________");
+		Line5=new JLabel("______________________________________________________");
+		Line6=new JLabel("_______________________________");
+		Line7=new JLabel("_______________________________");
+		labelf=new JLabel("<html><u> Develpoed by Prashant</u></html>");
+		addw=new JButton("Add Warden");
+		updatew=new JButton("Update Warden");
+		findw=new JButton("Find Warden");
+		deletew=new JButton("Delete Warden");
+		addp=new JButton("Add Prisoner");
+		updatep=new JButton("Update Prisoner");
+		releasep=new JButton("Release Prisoner");
+		findp=new JButton("Find Prisoner");
+		reportw=new JButton("Warden Report");
+		reportp=new JButton("Prisoner Report");
+		logout=new JButton("");
+		help=new JButton("");
+	}
+
+	public void adding()
+	{
+		getContentPane().setBackground(Color.black);
+		setIconImage (getToolkit().getImage ("prisoner.png"));
+		setTitle("Home Page");
+		labelcp.setFont(f1);
+		header.add(labelcp);
+		header.setBackground(new Color(139, 0, 0));
+		add(header, BorderLayout.NORTH);
+		labelf.setFont(f2);
+		labelf.setForeground(new Color(255, 255, 255));
+		labelcp.setForeground(new Color(255, 255, 255));
+		footer.add(labelf);
+		footer.setBackground(new Color(139, 0, 0));
+		add(footer, BorderLayout.SOUTH);
+		center.setLayout(null);
+		center.add(Line);
+		center.add(Line1);
+		center.add(Line2);
+		center.add(labelw);
+		center.add(labelp);
+		center.add(Line3);
+		center.add(Line4);
+		center.add(Line5);
+		center.add(addw);
+		center.add(updatew);
+		center.add(addp);
+		center.add(updatep);
+		center.add(releasep);
+		center.add(Line6);
+		center.add(Line7);
+		center.add(labelr);
+		center.add(reportp);
+		center.add(reportw);
+		center.add(findw);
+		center.add(deletew);
+		center.add(findp);
+		center.add(logout);
+		center.add(help);
+		labelw.setForeground(new Color(255, 255, 255));
+		labelp.setForeground(new Color(255, 255, 255));
+		labelr.setForeground(new Color(255,255,255));
+		center.setBackground(new Color(47, 79, 79));
+		addw.setIcon(imgaw);
+		addw.setBounds(90,130, 130,130);
+		addw.setToolTipText("Add Warden");
+		updatew.setBounds(300,130, 130,130);
+		updatew.setIcon(imgupw);
+		updatew.setToolTipText("Update Warden");
+		findw.setBounds(90,280, 130,130);
+		findw.setIcon(imgfindw);
+		findw.setToolTipText("Find a Warden");
+		deletew.setBounds(300,280, 130,130);
+		deletew.setIcon(imgdeletew);
+		deletew.setToolTipText("Delete a Warden");
+		addp.setBounds(520,130, 130,130);
+		addp.setIcon(imgap);
+		addp.setToolTipText("Add Prisoner");
+		releasep.setBounds(720,130, 130,130);
+		releasep.setIcon( imgreleasep);
+		releasep.setToolTipText("Release or Delete a Prisoner");
+		updatep.setBounds(520,280, 130,130);
+		updatep.setIcon(imgupp);
+		updatep.setToolTipText("Update Priosner");
+		findp.setBounds(720,280, 130,130);
+		findp.setIcon(imgfindp);
+		findp.setToolTipText("Find Prisoner");
+		reportw.setBounds(975,130, 130,130);
+		reportw.setIcon(imgreportw);
+		reportw.setToolTipText("Warden Reports");
+		reportp.setBounds(975,280, 130,130);
+		reportp.setIcon(imgreportp);
+		reportp.setToolTipText("Prisoner Reports");
+		logout.setBounds(1100,0,50,50);
+		logout.setIcon(imglogout);
+		logout.setToolTipText("Logout");
+		help.setBounds(1040,0 ,50,50);
+		help.setIcon(imghelp);
+		help.setToolTipText("Need Help");
+		labelw.setBounds(180,40, 200,100);
+		labelw.setFont(f3);
+		labelp.setBounds(600,40, 200,100);
+		labelp.setFont(f3);
+		labelr.setFont(f3);
+		labelr.setBounds(970,65, 130,50);
+		Line.setBounds(40,30, 1200,30);
+		Line.setForeground(Color.red);
+		Line1.setBounds(40,450, 1200,30);
+		Line1.setForeground(Color.red);
+		Line2.setBounds(70,50, 1200,30);
+		Line2.setForeground(Color.red);
+		Line3.setBounds(70,420, 1200,30);
+		Line3.setForeground(Color.red);
+		Line4.setBounds(500,50, 1200,30);
+		Line4.setForeground(Color.red);
+		Line5.setBounds(500,420,1200,30);
+		Line5.setForeground(Color.red);
+		Line6.setBounds(930,50, 600,30);
+		Line6.setForeground(Color.red);
+		Line7.setBounds(930,420, 600,30);
+		Line7.setForeground(Color.red);
+		add(center, BorderLayout.CENTER);
+
+		addw.addActionListener(this);
+		logout.addActionListener(this);
+		findw.addActionListener(this);
+		updatew.addActionListener(this);
+		deletew.addActionListener(this);
+		addp.addActionListener(this);
+		updatep.addActionListener(this);
+		releasep.addActionListener(this);
+		findp.addActionListener(this);
+		reportp.addActionListener(this);
+		reportw.addActionListener(this);
+
+		setBounds(60,60, 1200,600);
+		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getSource()==addw)
+		{
+			AddWarden aw=new AddWarden();
+			aw.ItemsAdd();
+		}
+		else if (e.getSource()==logout)
+		{
+			dispose();
+			AddWarden aw=new AddWarden();
+			aw.setVisible(false);
+			AdminLogin al=new AdminLogin();
+			al.ShowFrame();
+		}
+		else if (e.getSource()==findw)
+		{
+			SearchWarden sw=new SearchWarden();
+			sw.ItemsAdd();
+		}
+		else if (e.getSource()==updatew)
+		{
+			UpdateWarden uw=new UpdateWarden();
+			uw.ItemsAdd();
+		}
+		else if (e.getSource()==deletew)
+		{
+			DeleteWarden dw=new DeleteWarden();
+			dw.ItemsAdd();
+		}
+		else if (e.getSource()==addp)
+		{
+			AddPrisoner ap=new AddPrisoner();
+			ap.ItemsAdd();
+		}
+		else if (e.getSource()==updatep)
+		{
+			UpdatePrisoner up=new UpdatePrisoner();
+			up.AddItem();
+		}
+		else if (e.getSource()==releasep)
+		{
+			ReleasePrisoner rp=new ReleasePrisoner();
+			rp.AddItem();
+		}
+		else if (e.getSource()==findp)
+		{
+			SearchPrisoner sp=new SearchPrisoner();
+			sp.AddItem();
+		}
+		else if (e.getSource()==reportp)
+		{
+			PrisonerReport pr=new PrisonerReport();
+		}
+		else if (e.getSource()==reportw)
+		{
+			WardenReport pr=new WardenReport();
+		}
+	}
+
+	public static void main(String args[])
+	{
+		ControlPanel cp=new ControlPanel();
+		cp.adding();
+		System.out.println("Execution Done !");
+	}
+}
